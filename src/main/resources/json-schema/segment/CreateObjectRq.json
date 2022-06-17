@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "type": "object",
+  "description": "Объект для проверки работы jsom schema",
+  "javaType": "ru.development.api.dto.object.JsonObjectBox",
+  "additionalProperties": false,
+  "properties": {
+    "objectId": {
+      "description": "Пример создания обычного поля типа String",
+      "type": "string",
+      "maxLength": 32
+    },
+    "objectList": {
+      "description": "Пример создания массива из других объектов",
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "$ref": "#/$def/JsonObject"
+      }
+    }
+  },
+  "required": [
+    "objectId",
+    "object"
+  ],
+  "$def": {
+    "JsonObject": {
+      "type": "object",
+      "description": "Object",
+      "additionalProperties": false,
+      "properties": {
+        "someProperty1": {
+          "type": "string",
+          "description": "some property 1",
+          "maxLength": 32
+        },
+        "someProperty2": {
+          "type": "string",
+          "description": "some property 2",
+          "maxLength": 200
+        }
+      },
+      "required": [
+        "objectCode"
+      ]
+    }
+  }
+}
