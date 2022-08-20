@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "type": "object",
+  "description": "Объект для проверки работы jsom schema",
+  "javaType": "ru.development.api.dto.object.JsonObject",
+  "additionalProperties": false,
+  "properties": {
+    "someProperty1": {
+      "type": "string",
+      "description": "some property 1",
+      "maxLength": 32
+    },
+    "someProperty2": {
+      "type": "array",
+      "description": "array of strings",
+      "items": {
+        "type": "string",
+        "maxLength": 200
+      }
+    },
+    "someObject": {
+      "description": "Пример создания объекта, который лежит в другой схеме",
+      "$ref": "JsonObjectBoxDto.json#/$def/SomeObject"
+    }
+  },
+  "required": [
+    "someProperty1",
+    "someProperty2",
+    "someObject"
+  ]
+}

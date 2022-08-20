@@ -11,37 +11,41 @@
       "maxLength": 32
     },
     "objectList": {
-      "description": "Пример создания массива из других объектов",
+      "description": "Пример создания массива из других объектов другой схемы",
       "type": "array",
       "minItems": 0,
       "items": {
-        "$ref": "#/$def/JsonObject"
+        "$ref": "JsonObjectDto.json"
       }
+    },
+    "someObject": {
+      "description": "Пример создания объекта из той же схемы",
+      "$ref": "#/$def/SomeObject"
     }
   },
   "required": [
     "objectId",
-    "object"
+    "objectList",
+    "someObject"
   ],
   "$def": {
-    "JsonObject": {
+    "SomeObject": {
       "type": "object",
-      "description": "Object",
+      "description": "Объект для проверки работы jsom schema",
       "additionalProperties": false,
       "properties": {
-        "someProperty1": {
-          "type": "string",
-          "description": "some property 1",
-          "maxLength": 32
+        "someInt": {
+          "type": "integer",
+          "description": "some int"
         },
-        "someProperty2": {
-          "type": "string",
-          "description": "some property 2",
-          "maxLength": 200
+        "someDouble": {
+          "type": "number",
+          "description": "some number"
         }
       },
       "required": [
-        "objectCode"
+        "someInt",
+        "someNumber"
       ]
     }
   }
